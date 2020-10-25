@@ -1,0 +1,96 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+    background-color: #eb2042dc;
+}
+nav{
+    /* flex */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    /* Style */
+    height: 12vh;
+    background-color: #eb2042;
+    border-bottom: solid #ffffff 1.5vh;
+}
+
+.contenedor{
+    /* flex */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+/* parte izquierda, pantalla donde aparece el pokemon */
+.main{
+    /* flex */
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    /* flex-item */
+    order: 0;
+    flex: 1.8 1 auto;
+    align-self: auto;
+    /* style */
+    background-color: green;
+
+}
+
+.section1{
+    /* flex */
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    /* style */
+    background-color: orangered;
+}
+/* imagen del pokemon, debera ser substituida por la imagen de la API */
+.imgPokemon{
+    height: 35vh;
+    width: 20vw;
+    margin: 2.5vh;
+}
+.nombreNum{
+    /* flex */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    /* style */
+    width: 17vw; 
+}
+.section2{ 
+    /* flex */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    /* style */
+    background-color: cyan;
+    width: 100%;
+}
+
+
+/* lado derecho, lista con todos los pokemon */
+.lista{
+    /* flex */
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+     /* flex-item */
+     order: 0;
+    flex: 1 1 auto;
+    align-self: auto;
+     /* style */
+    background-color: indigo;
+}
+
+
+span{
+    font-size: 3.5vh;
+}
