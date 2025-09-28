@@ -47,9 +47,8 @@ function renderPokemons(pokemons){
       }
 
       const name_tag = document.createElement("p");
-      name_tag.textContent = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+      name_tag.textContent = '#' + pokemon.id + " " + pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
      
-      div.appendChild(id_tag)
       div.appendChild(img_tag);
       div.appendChild(name_tag);
 
