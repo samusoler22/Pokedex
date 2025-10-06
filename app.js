@@ -4,7 +4,7 @@ async function getPokemonsData() {
     if (allPokemons.length > 0) return allPokemons;
     
     const limit = 20;
-    const maxItems = 151;
+    const maxItems = 251;
     let offset = 0;
     let allUrls = [];
     const API = "https://pokeapi.co/api/v2/pokemon";
@@ -101,9 +101,60 @@ function setupSearchbar() {
     });
     }
 
+function showcasePokemon(pokemons){
+  let elements = document.querySelectorAll('.pokemon');
+  let showcase = document.getElementById("showcase");
+
+  elements.forEach(element => {
+    element.addEventListener("click", () => {
+      showcase.innerHTML = "";
+      let img = document.createElement("img");
+      let div = document.createElement("div")
+      div.classList.add("showcase-box")
+      let pokemon_name = element.querySelector("p").textContent.split(/ (.+)/)[1].trim();
+
+      let pokemon = pokemons.find(p => p.name.toLowerCase() === pokemon_name.toLowerCase());
+      img.src = pokemon.sprites.other.home.front_default;
+
+      let statsBar = document.createElement("aside");
+      statsBar.classList.add("stats-bar");
+
+      let hp = document.createElement("p");
+      hp.textContent = `HP: ${pokemon.stats[0].base_stat}`;
+      statsBar.appendChild(hp);
+
+      let atk = document.createElement("p");
+      atk.textContent = `ATK: ${pokemon.stats[1].base_stat}`;
+      statsBar.appendChild(atk);
+
+      let def = document.createElement("p");
+      def.textContent = `DEF: ${pokemon.stats[2].base_stat}`;
+      statsBar.appendChild(def);
+
+      let spatk = document.createElement("p");
+      spatk.textContent = `SP. ATK: ${pokemon.stats[3].base_stat}`;
+      statsBar.appendChild(spatk);
+
+      let spdef = document.createElement("p");
+      spdef.textContent = `SP. DEF: ${pokemon.stats[4].base_stat}`;
+      statsBar.appendChild(spdef);
+
+      let speed = document.createElement("p");
+      speed.textContent = `SPEED: ${pokemon.stats[5].base_stat}`;
+      statsBar.appendChild(speed);
+
+      div.appendChild(img);
+      div.appendChild(statsBar);
+      showcase.appendChild(div);
+
+    });
+  });
+}
+
 // --- Init ---
 document.addEventListener("DOMContentLoaded", async () => {
     allPokemons = await getPokemonsData();
     renderPokemons(allPokemons);
     setupSearchbar();
+    showcasePokemon(allPokemons);
   });
